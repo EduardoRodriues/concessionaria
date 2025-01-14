@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html th:replace="~{adminlte3 :: layout (~{::title}, ~{::main}, _, _)}" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Lista de SUVs</title>
+</head>
+<body>
+<main>
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">Lista de SUVs</div>
+          <div class="card-tools">
+            <a th:href="@{/admin/produtos/cadastrarSUVs}" class="btn btn-sm btn-success">Novo Veículo</a>
+          </div>
+        </div>
+        <div class="card-body">
+          <table class="table table-condensed">
+            <thead>
+            <tr>
+              <th>#</th>
+              <th>Modelo</th>
+              <th>Tração Integral</th>
+              <th>Tipo Suspensão</th>
+              <th>Quilometragem</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each=" SUVs: ${lista}">
+              <td th:text="${SUVs.id}"></td>
+              <td th:text="${SUVs.modelo}"></td>
+              <td th:text="${SUVs.tracaoIntegral}"></td>
+              <td th:text="${SUVs.tipoSuspensao}"></td>
+              <td th:text="${SUVs.quilometragem}"></td>
+              <td>
+                <a class="btn btn-sm btn-warning"
+                   th:href="@{/admin/produtos/{id}/editarSUVs (id=${SUVs.id})}">Editar</a>
+                <a class="btn btn-sm btn-danger"
+                   th:href="@{/admin/produtos/{id}/excluirSUVs (id=${SUVs.id})}"
+                   onclick="return confirm ('Tem certeza que deseja excluir?')"
+                >Excluir</a>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+</body>
+</html>
