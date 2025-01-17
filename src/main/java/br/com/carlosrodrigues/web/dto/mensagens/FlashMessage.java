@@ -10,4 +10,20 @@ public class FlashMessage {
         this.classeCss = classeCss;
         this.mensagem = mensagem;
     }
+
+    public String getClasseCss() {
+        return classeCss;
+    }
+
+    public void setClasseCss(String classeCss) {
+        this.classeCss = classeCss;
+    }
+
+    public String getMensagem() {
+        return mensagem;
+    }
+
+    public void setMensagem(String mensagem) {
+        this.mensagem = mensagem;
+    }
 }

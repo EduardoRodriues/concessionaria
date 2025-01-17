@@ -2,7 +2,6 @@ package br.com.carlosrodrigues.web.controller.produtos_controllers;
 
 import br.com.carlosrodrigues.core.enums.enums_produtos.Boleano;
 import br.com.carlosrodrigues.core.enums.enums_produtos.QuantidadePortas;
-import br.com.carlosrodrigues.core.models.models_produtos.Conversiveis;
 import br.com.carlosrodrigues.web.dto.dto_produtos.ConversiveisForm;
 import br.com.carlosrodrigues.web.dto.dto_produtos.SUVsForm;
 import br.com.carlosrodrigues.web.dto.mensagens.FlashMessage;
@@ -46,13 +45,13 @@ public class ProdutoController {
                             RedirectAttributes attrs) {
 
         if(result.hasErrors()) {
-            return "admin/produtos/formularios";
+            return "admin/produtos/formularios/formConversiveis";
         }
 
         service.cadastrarConversiveis(form);
         attrs.addFlashAttribute("alert", new FlashMessage("alert-success", "Produto cadastrado com sucesso"));
 
-        return "redirect:/admin/produtos/listaCoversiveis";
+        return "redirect:/admin/produtos/listaConversiveis";
     }
 
     @GetMapping("/{id}/editarConversiveis")
@@ -71,22 +70,22 @@ public class ProdutoController {
                          RedirectAttributes attrs) {
 
         if(result.hasErrors()) {
-            return "admin/produtos/formularios";
+            return "admin/produtos/formularios/listaConversiveis";
         }
 
         service.editarConversiveis(form, id);
         attrs.addFlashAttribute("alert", new FlashMessage("alert-success", "Produto editado com sucesso"));
 
-        return "redirect:/admin/produtos/listaCoversiveis";
+        return "redirect:/admin/produtos/listaConversiveis";
     }
 
     @GetMapping("/{id}/excluirConversiveis")
     public String excluir(@PathVariable Long id, RedirectAttributes attrs) {
 
         service.excluirConversiveis(id);
-        attrs.addFlashAttribute("alert", new FlashMessage("alert-success", "Produto excluido com sucesso"));
+        attrs.addFlashAttribute("alert", new FlashMessage("alert-success", "Produto excluído com sucesso"));
 
-        return "redirect:/admin/produtos/listaCoversiveis";
+        return "redirect:/admin/produtos/listaConversiveis";
     }
 
     @ModelAttribute("quantidadePortass")
@@ -101,7 +100,7 @@ public class ProdutoController {
     @GetMapping("/listaSUVs")
     public ModelAndView mostrarTodosSUVs() {
         var modelAndView = new ModelAndView("admin/produtos/listas/listaSUVs");
-        modelAndView.addObject("listaSUVs", service.mostrarTodosConversiveis());
+        modelAndView.addObject("listaSUVs", service.mostrarTodosSUVs());
 
         return modelAndView;
     }
@@ -109,7 +108,7 @@ public class ProdutoController {
     @GetMapping("/cadastrarSUVs")
     public ModelAndView cadastrarSUVs() {
         var modelAndView = new ModelAndView("admin/produtos/formularios/formSUVs");
-        modelAndView.addObject("formSUVs", new ConversiveisForm());
+        modelAndView.addObject("formSUVs", new SUVsForm());
 
         return modelAndView;
     }
@@ -120,7 +119,7 @@ public class ProdutoController {
                                         RedirectAttributes attrs) {
 
         if(result.hasErrors()) {
-            return "admin/produtos/formularios";
+            return "admin/produtos/formularios/formSUVs";
         }
 
         service.cadastrarSUVs(form);
@@ -145,7 +144,7 @@ public class ProdutoController {
                                      RedirectAttributes attrs) {
 
         if(result.hasErrors()) {
-            return "admin/produtos/formularios";
+            return "admin/produtos/formularios/formSUVs";
         }
 
         service.editarSUVs(form, id);
@@ -163,8 +162,8 @@ public class ProdutoController {
         return "redirect:/admin/produtos/listaSUVs";
     }
 
-    @ModelAttribute("Boleanos")
-    public Boleano[] getBoelano() {
+    @ModelAttribute("tracaoIntegrals")
+    public Boleano[] getBoleano() {
         return Boleano.values();
     }
 }

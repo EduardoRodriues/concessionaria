@@ -40,7 +40,7 @@ public class ProdutoService {
 
     public Conversiveis buscarPorIdConversiveis(Long id) {
 
-        var mensagem = String.format("O produto com o ID %d não foi encontrado");
+        var mensagem = String.format("O produto com o ID %d não foi encontrado", id);
 
         return conversiveisRepository.findById(id)
                 .orElseThrow(() -> new ProdutoNaoEncontradoException(mensagem));
@@ -80,7 +80,7 @@ public class ProdutoService {
 
     public SUVs buscarPorIdSUVs(Long id) {
 
-        var mensagem = String.format("O produto com o ID %d não foi encontrado");
+        var mensagem = String.format("O produto com o ID %d não foi encontrado", id);
 
         return suVsRepository.findById(id)
                 .orElseThrow(() -> new ProdutoNaoEncontradoException(mensagem));
