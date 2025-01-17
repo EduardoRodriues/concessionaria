@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html th:replace="~{adminlte3 :: layout (~{::title}, ~{::main}, _, _)}" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Lista de Conversiveis</title>
+</head>
+<body>
+<main>
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">Lista de Conversiveis</div>
+                    <div class="card-tools">
+                        <a th:href="@{/admin/produtos/cadastrarConversiveis}" class="btn btn-sm btn-success">Novo Veículo</a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <table class="table table-condensed">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Veículo</th>
+                            <th>Valor</th>
+                            <th>Marca</th>
+                            <th>Quilometragem</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each=" Conversiveis: ${listaConversiveis}">
+                            <td th:text="${Conversiveis.id}"></td>
+                            <td th:text="${Conversiveis.veiculo}"></td>
+                            <td th:text="${Conversiveis.preco}"></td>
+                            <td th:text="${Conversiveis.marca}"></td>
+                            <td th:text="${Conversiveis.quilometragem}"></td>
+                            <td>
+                                <a class="btn btn-sm btn-warning"
+                                   th:href="@{/admin/produtos/{id}/editarConversiveis (id=${Conversiveis.id})}">Editar</a>
+                                <a class="btn btn-sm btn-danger"
+                                   th:href="@{/admin/produtos/{id}/excluirConversiveis (id=${Conversiveis.id})}"
+                                   onclick="return confirm ('Tem certeza que deseja excluir?')"
+                                >Excluir</a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>
