@@ -12,6 +12,12 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 public class Carro {
 
+    @Column(name = "veículo", nullable = false)
+    private String veiculo;
+
+    @Column(name = "preço", nullable = false)
+    private BigDecimal preco;
+
     @Column(name = "marca", nullable = false)
     private String marca;
 
@@ -65,5 +71,21 @@ public class Carro {
 
     public void setQuilometragem(BigDecimal quilometragem) {
         this.quilometragem = quilometragem;
+    }
+
+    public String getVeiculo() {
+        return veiculo;
+    }
+
+    public void setVeiculo(String veiculo) {
+        this.veiculo = veiculo;
+    }
+
+    public BigDecimal getPreco() {
+        return preco;
+    }
+
+    public void setPreco(BigDecimal preco) {
+        this.preco = preco;
     }
 }

@@ -19,8 +19,8 @@
             <thead>
             <tr>
               <th>#</th>
-              <th>Modelo</th>
-              <th>Tração Integral</th>
+              <th>Veículo</th>
+              <th>Valor</th>
               <th>Tipo Suspensão</th>
               <th>Quilometragem</th>
             </tr>
@@ -28,8 +28,8 @@
             <tbody>
             <tr th:each=" SUVs: ${listaSUVs}">
               <td th:text="${SUVs.id}"></td>
-              <td th:text="${SUVs.modelo}"></td>
-              <td th:text="${SUVs.tracaoIntegral}"></td>
+              <td th:text="${SUVs.veiculo}"></td>
+              <td th:text="${SUVs.preco}"></td>
               <td th:text="${SUVs.tipoSuspensao}"></td>
               <td th:text="${SUVs.quilometragem}"></td>
               <td>

@@ -16,6 +16,13 @@ import java.math.BigDecimal;
 public class CarroForm {
 
     @NotEmpty(message = "O espaço deve ser preenchido")
+    private String veiculo;
+
+    @NotNull(message = "O espaço deve ser preenchido")
+    @PositiveOrZero
+    private BigDecimal preco;
+
+    @NotEmpty(message = "O espaço deve ser preenchido")
     private String marca;
 
     @NotEmpty(message = "O espaço deve ser preenchido")
@@ -70,5 +77,21 @@ public class CarroForm {
 
     public void setQuilometragem(BigDecimal quilometragem) {
         this.quilometragem = quilometragem;
+    }
+
+    public @NotEmpty(message = "O espaço deve ser preenchido") String getVeiculo() {
+        return veiculo;
+    }
+
+    public void setVeiculo(@NotEmpty(message = "O espaço deve ser preenchido") String veiculo) {
+        this.veiculo = veiculo;
+    }
+
+    public @NotNull(message = "O espaço deve ser preenchido") @PositiveOrZero BigDecimal getPreco() {
+        return preco;
+    }
+
+    public void setPreco(@NotNull(message = "O espaço deve ser preenchido") @PositiveOrZero BigDecimal preco) {
+        this.preco = preco;
     }
 }
