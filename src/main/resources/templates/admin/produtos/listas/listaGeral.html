@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html th:replace="~{adminlte3 :: layout (~{::title}, ~{::main}, _, _)}" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Lista Geral</title>
+</head>
+<body>
+<main>
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">Lista de Geral</div>
+                    <div class="card-tools">
+                        <a th:href="@{/admin/geral/cadastrarGeral}" class="btn btn-sm btn-success">Novo Produto</a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <table class="table table-condensed">
+                        <thead>
+                        <tr>
+                            <th>Conversiveis Modelo</th>
+                            <th>Conversiveis Marca</th>
+                            <th>SUVs Modelo</th>
+                            <th>SUVs Marca</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="geral : ${dadosCombinados}">
+                            <td th:text="${geral.conversiveis.modelo}"></td>
+                            <td th:text="${geral.conversiveis.marca}"></td>
+                            <td th:text="${geral.suvs.modelo}"></td>
+                            <td th:text="${geral.suvs.marca}"></td>
+                            <td>
+
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>

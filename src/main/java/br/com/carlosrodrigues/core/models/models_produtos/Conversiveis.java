@@ -72,4 +72,15 @@ public class Conversiveis extends Carro{
     public void setConfiguracaoAssentos(String configuracaoAssentos) {
         this.configuracaoAssentos = configuracaoAssentos;
     }
+
+    @Override
+    public String toString() {
+        return "Conversiveis{" +
+                "id=" + id +
+                ", tipoTeto='" + tipoTeto + '\'' +
+                ", capacidadeMotor=" + capacidadeMotor +
+                ", quantidadePortas=" + quantidadePortas +
+                ", configuracaoAssentos='" + configuracaoAssentos + '\'' +
+                '}';
+    }
 }

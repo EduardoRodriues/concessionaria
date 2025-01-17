@@ -64,4 +64,23 @@ public class SUVs extends Carro{
     public void setTipoSuspensao(String tipoSuspensao) {
         this.tipoSuspensao = tipoSuspensao;
     }
+
+    public Boleano getTracaoIntegral() {
+        return tracaoIntegral;
+    }
+
+    public void setTracaoIntegral(Boleano tracaoIntegral) {
+        this.tracaoIntegral = tracaoIntegral;
+    }
+
+    @Override
+    public String toString() {
+        return "SUVs{" +
+                "id=" + id +
+                ", tracaoIntegral=" + tracaoIntegral +
+                ", capacidadeCarga=" + capacidadeCarga +
+                ", tipoMotor='" + tipoMotor + '\'' +
+                ", tipoSuspensao='" + tipoSuspensao + '\'' +
+                '}';
+    }
 }
