@@ -2,12 +2,17 @@ package br.com.carlosrodrigues.web.mappers.produtos_mappers;
 
 import br.com.carlosrodrigues.core.models.models_produtos.Conversiveis;
 import br.com.carlosrodrigues.web.dto.dto_produtos.ConversiveisForm;
-import org.mapstruct.Mapper;
+import org.mapstruct.*;
 
-@Mapper(componentModel = "spring")
+@Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE, componentModel = MappingConstants.ComponentModel.SPRING)
+
 public interface IConversiveisMapper {
 
     Conversiveis toModel(ConversiveisForm form);
 
     ConversiveisForm toForm(Conversiveis model);
+
+    @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
+    Conversiveis partialUpdate(ConversiveisForm conversiveisForm, @MappingTarget Conversiveis conversiveis);
+
 }

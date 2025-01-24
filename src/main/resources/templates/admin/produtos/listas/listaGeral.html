@@ -1,7 +1,15 @@
 <!DOCTYPE html>
-<html th:replace="~{adminlte3 :: layout (~{::title}, ~{::main}, _, _)}" xmlns:th="http://www.w3.org/1999/xhtml">
+<html th:replace="~{adminlte3 :: layout (~{::title}, ~{::main}, ~{::styles}, ~{::scripts})}" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Lista Geral</title>
+    <title>Lista de Veículos</title>
+
+    <th:block th:fragment="styles">
+        <link rel="stylesheet" href="/static_geral/listaGeral.css">
+    </th:block>
+
+    <th:block th:fragment="scripts">
+        <script src="/static_geral/listaGeral.js"></script>
+    </th:block>
 </head>
 <body>
 <main>
@@ -9,30 +17,42 @@
         <div class="col">
             <div class="card">
                 <div class="card-header">
-                    <div class="card-title">Lista de Geral</div>
+                    <div class="card-title">Lista de Veículos</div>
                     <div class="card-tools">
-                        <a th:href="@{/admin/geral/cadastrarGeral}" class="btn btn-sm btn-success">Novo Produto</a>
+                        <button type="button" class="btn btn-sm btn-success toggle-popup">Novo Veículo</button>
+                        <div class="popup">
+                            <a href="/admin/produtos/cadastrarConversiveis" class="category-link">Conversiveis</a>
+                            <a href="/admin/produtos/cadastrarSUVs" class="category-link">SUVs</a>
+                            <a href="/admin/produtos/cadastrarCoupees" class="category-link">Coupees</a>
+                            <a href="/admin/produtos/cadastrarEsportivos" class="category-link">Esportivos</a>
+                            <a href="/admin/produtos/cadastrarEletricos" class="category-link">Eletricos</a>
+                            <a href="/admin/produtos/cadastrarMinivans" class="category-link">Minivans</a>
+                            <a href="/admin/produtos/cadastrarPicapes" class="category-link">Picapes</a>
+                        </div>
                     </div>
                 </div>
                 <div class="card-body">
                     <table class="table table-condensed">
                         <thead>
                         <tr>
-                            <th>Conversiveis Modelo</th>
-                            <th>Conversiveis Marca</th>
-                            <th>SUVs Modelo</th>
-                            <th>SUVs Marca</th>
+                            <th>Conversiveis</th>
+                            <th>SUVs</th>
+                            <th>Coupees</th>
+                            <th>Esportivos</th>
+                            <th>Eletricos</th>
+                            <th>Minivans</th>
+                            <th>Picapes</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr th:each="geral : ${dadosCombinados}">
-                            <td th:text="${geral.conversiveis.veiculo}"></td>
-                            <td th:text="${geral.conversiveis.preco}"></td>
-                            <td th:text="${geral.suvs.veiculo}"></td>
-                            <td th:text="${geral.suvs.preco}"></td>
-                            <td>
-
-                            </td>
+                        <tr th:each="Geral : ${listaGeral}">
+                            <td th:text="${Geral.conversiveis != null ? Geral.conversiveis.veiculo : ''}"></td>
+                            <td th:text="${Geral.suvs != null ? Geral.suvs.veiculo : ''}"></td>
+                            <td th:text="${Geral.coupees != null ? Geral.coupees.veiculo : ''}"></td>
+                            <td th:text="${Geral.esportivos != null ? Geral.esportivos.veiculo : ''}"></td>
+                            <td th:text="${Geral.eletricos != null ? Geral.eletricos.veiculo : ''}"></td>
+                            <td th:text="${Geral.minivans != null ? Geral.minivans.veiculo : ''}"></td>
+                            <td th:text="${Geral.picapes != null ? Geral.picapes.veiculo : ''}"></td>
                         </tr>
                         </tbody>
                     </table>
