@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html th:replace="~{adminlte3 :: layout (~{::title}, ~{::main}, _, _)}" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-  <title>Lista de SUVs</title>
+  <title>Lista de Esportivos</title>
 </head>
 <body>
 <main>
@@ -9,9 +9,9 @@
     <div class="col">
       <div class="card">
         <div class="card-header">
-          <div class="card-title">Lista de SUVs</div>
+          <div class="card-title">Lista de Esportivos</div>
           <div class="card-tools">
-            <a th:href="@{/admin/produtos/cadastrarSUVs}" class="btn btn-sm btn-success">Novo Veículo</a>
+            <a th:href="@{/admin/produtos/cadastrarEsportivos}" class="btn btn-sm btn-success">Novo Veículo</a>
           </div>
         </div>
         <div class="card-body">
@@ -21,22 +21,22 @@
               <th>#</th>
               <th>Veículo</th>
               <th>Valor</th>
-              <th>Tipo Suspensão</th>
+              <th>Marca</th>
               <th>Quilometragem</th>
             </tr>
             </thead>
             <tbody>
-            <tr th:each=" SUVs: ${listaSUVs}">
-              <td th:text="${SUVs.id}"></td>
-              <td th:text="${SUVs.veiculo}"></td>
-              <td th:text="${SUVs.preco}"></td>
-              <td th:text="${SUVs.marca}"></td>
-              <td th:text="${SUVs.quilometragem}"></td>
+            <tr th:each=" Esportivos: ${listaEsportivos}">
+              <td th:text="${Esportivos.id}"></td>
+              <td th:text="${Esportivos.veiculo}"></td>
+              <td th:text="${Esportivos.preco}"></td>
+              <td th:text="${Esportivos.marca}"></td>
+              <td th:text="${Esportivos.quilometragem}"></td>
               <td>
                 <a class="btn btn-sm btn-warning"
-                   th:href="@{/admin/produtos/{id}/editarSUVs (id=${SUVs.id})}">Editar</a>
+                   th:href="@{/admin/produtos/{id}/editarEsportivos (id=${Esportivos.id})}">Editar</a>
                 <a class="btn btn-sm btn-danger"
-                   th:href="@{/admin/produtos/{id}/excluirSUVs (id=${SUVs.id})}"
+                   th:href="@{/admin/produtos/{id}/excluirEsportivos (id=${Esportivos.id})}"
                    onclick="return confirm ('Tem certeza que deseja excluir?')"
                 >Excluir</a>
               </td>

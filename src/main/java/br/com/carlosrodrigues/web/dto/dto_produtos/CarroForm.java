@@ -7,6 +7,7 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PositiveOrZero;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.NumberFormat;
 
 import java.math.BigDecimal;
 
@@ -20,6 +21,7 @@ public class CarroForm {
 
     @NotNull(message = "O espaço deve ser preenchido")
     @PositiveOrZero
+    @NumberFormat(style = NumberFormat.Style.CURRENCY, pattern = "#,##0.00")
     private BigDecimal preco;
 
     @NotEmpty(message = "O espaço deve ser preenchido")
@@ -30,14 +32,14 @@ public class CarroForm {
 
     @PositiveOrZero
     @NotNull(message = "O espaço deve ser preenchido")
-    private BigDecimal anoFabricacao;
+    private Double anoFabricacao;
 
     @NotEmpty(message = "O espaço deve ser preenchido")
     private String cor;
 
     @PositiveOrZero
     @NotNull(message = "O espaço deve ser preenchido")
-    private BigDecimal quilometragem;
+    private Double quilometragem;
 
     public String getMarca() {
         return marca;
@@ -55,11 +57,11 @@ public class CarroForm {
         this.modelo = modelo;
     }
 
-    public BigDecimal getAnoFabricacao() {
+    public Double getAnoFabricacao() {
         return anoFabricacao;
     }
 
-    public void setAnoFabricacao(BigDecimal anoFabricacao) {
+    public void setAnoFabricacao(Double anoFabricacao) {
         this.anoFabricacao = anoFabricacao;
     }
 
@@ -71,11 +73,11 @@ public class CarroForm {
         this.cor = cor;
     }
 
-    public BigDecimal getQuilometragem() {
+    public Double getQuilometragem() {
         return quilometragem;
     }
 
-    public void setQuilometragem(BigDecimal quilometragem) {
+    public void setQuilometragem(Double quilometragem) {
         this.quilometragem = quilometragem;
     }
 

@@ -4,8 +4,6 @@ import br.com.carlosrodrigues.core.enums.enums_produtos.QuantidadePortas;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.math.BigDecimal;
-
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
@@ -24,7 +22,7 @@ public class Conversiveis extends Carro{
     private String tipoTeto; // Tipo de teto: conversível de lona, metálico, etc.
 
     @Column(name = "capacidade_motor", nullable = false)
-    private BigDecimal capacidadeMotor; // Capacidade do motor, muito relevante em conversíveis de alto desempenho.
+    private int capacidadeMotor; // Capacidade do motor, muito relevante em conversíveis de alto desempenho.
 
     @Column(name = "quantidade_portas", nullable = false)
     @Enumerated(EnumType.STRING)
@@ -49,11 +47,11 @@ public class Conversiveis extends Carro{
         this.tipoTeto = tipoTeto;
     }
 
-    public BigDecimal getCapacidadeMotor() {
+    public int getCapacidadeMotor() {
         return capacidadeMotor;
     }
 
-    public void setCapacidadeMotor(BigDecimal capacidadeMotor) {
+    public void setCapacidadeMotor(int capacidadeMotor) {
         this.capacidadeMotor = capacidadeMotor;
     }
 
@@ -73,14 +71,5 @@ public class Conversiveis extends Carro{
         this.configuracaoAssentos = configuracaoAssentos;
     }
 
-    @Override
-    public String toString() {
-        return "Conversiveis{" +
-                "id=" + id +
-                ", tipoTeto='" + tipoTeto + '\'' +
-                ", capacidadeMotor=" + capacidadeMotor +
-                ", quantidadePortas=" + quantidadePortas +
-                ", configuracaoAssentos='" + configuracaoAssentos + '\'' +
-                '}';
-    }
+
 }

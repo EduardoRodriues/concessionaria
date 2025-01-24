@@ -1,0 +1,41 @@
+.card-tools {
+    position: relative;
+}
+
+.popup {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 10px;
+    z-index: 1000;
+    width: auto;
+    max-width: 300px;
+    height: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.toggle-popup:active + .popup {
+    display: block;
+}
+
+.category-link {
+    display: block;
+    text-align: center;
+    padding: 10px;
+    margin: 5px 0;
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    border-radius: 5px;
+    background-color: #f8f9fa;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.category-link:hover {
+    background-color: rgba(215, 215, 215, 0.52);
+    color: #000;
+}
