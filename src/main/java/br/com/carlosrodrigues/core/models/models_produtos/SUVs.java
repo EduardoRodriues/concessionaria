@@ -4,8 +4,6 @@ import br.com.carlosrodrigues.core.enums.enums_produtos.Boleano;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.math.BigDecimal;
-
 @Entity
 @Table(name = "suvs")
 @AllArgsConstructor
@@ -25,7 +23,7 @@ public class SUVs extends Carro{
     private Boleano tracaoIntegral; // Atributo para indicar se o SUV possui tração integral.
 
     @Column(name = "capacidade_carga", nullable = false)
-    private BigDecimal capacidadeCarga; // A capacidade de carga do veículo, característica de SUVs.
+    private int capacidadeCarga; // A capacidade de carga do veículo, característica de SUVs.
 
     @Column(name = "tipo_motor", nullable = false)
     private String tipoMotor; // Exemplo: V6, V8, híbrido.
@@ -41,11 +39,11 @@ public class SUVs extends Carro{
         this.id = id;
     }
 
-    public BigDecimal getCapacidadeCarga() {
+    public int getCapacidadeCarga() {
         return capacidadeCarga;
     }
 
-    public void setCapacidadeCarga(BigDecimal capacidadeCarga) {
+    public void setCapacidadeCarga(int capacidadeCarga) {
         this.capacidadeCarga = capacidadeCarga;
     }
 
@@ -73,14 +71,4 @@ public class SUVs extends Carro{
         this.tracaoIntegral = tracaoIntegral;
     }
 
-    @Override
-    public String toString() {
-        return "SUVs{" +
-                "id=" + id +
-                ", tracaoIntegral=" + tracaoIntegral +
-                ", capacidadeCarga=" + capacidadeCarga +
-                ", tipoMotor='" + tipoMotor + '\'' +
-                ", tipoSuspensao='" + tipoSuspensao + '\'' +
-                '}';
-    }
 }

@@ -1,10 +1,11 @@
 <!-- Main Sidebar Container -->
 <aside th:fragment="aside" class="main-sidebar sidebar-dark-primary elevation-4"
-       xmlns:th="http://www.w3.org/1999/xhtml">
+       xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
     <!-- Brand Logo -->
     <a href="" class="brand-link">
-        <img th:src="@{/img/clothes-store-logo-icon-illustration_561505-44.jpg.avif}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3">
-        <span class="brand-text font-weight-light">Clothes Store</span>
+        <img th:src="@{/img/4980578-black-car-logo-template-with-black-background-auto-car-business-logo-design-with-silhouette-for-automotivo-company-logo-car-wash-garage-service-painting-gratis-vetor.jpg}"
+             alt="AdminLTE Logo" class="brand-image img-circle elevation-3">
+        <span class="brand-text font-weight-light">Auto-Cars</span>
     </a>
 
     <!-- Sidebar -->
@@ -20,29 +21,132 @@
         <!-- Sidebar Menu -->
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+
                 <li class="nav-item">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-broom"></i>
+                        <i class="nav-icon fas fa-car"></i>
                         <p>
-                            Serviços
+                            Veículos
                             <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a th:href="@{/admin/servico/cadastrar}" class="nav-link">
-                                <i class="nav-icon fas fa-edit nav-icon"></i>
-                                <p>Cadastrar</p>
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-cogs"></i>
+                                <p>
+                                    Categorias
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
                             </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a th:href="@{/admin/produtos/cadastrarConversiveis}" class="nav-link">
+                                        <i class="nav-icon fas fa-edit"></i>
+                                        <p>Cadastrar Conversíveis</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a th:href="@{/admin/produtos/cadastrarSUVs}" class="nav-link">
+                                        <i class="nav-icon fas fa-edit"></i>
+                                        <p>Cadastrar SUVs</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a th:href="@{/admin/produtos/cadastrarCoupees}" class="nav-link">
+                                        <i class="nav-icon fas fa-edit"></i>
+                                        <p>Cadastrar Coupees</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a th:href="@{/admin/produtos/cadastrarEletricos}" class="nav-link">
+                                        <i class="nav-icon fas fa-edit"></i>
+                                        <p>Cadastrar Eletricos</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a th:href="@{/admin/produtos/cadastrarEsportivos}" class="nav-link">
+                                        <i class="nav-icon fas fa-edit"></i>
+                                        <p>Cadastrar Esportivos</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a th:href="@{/admin/produtos/cadastrarMinivans}" class="nav-link">
+                                        <i class="nav-icon fas fa-edit"></i>
+                                        <p>Cadastrar Minivans</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a th:href="@{/admin/produtos/cadastrarPicapes}" class="nav-link">
+                                        <i class="nav-icon fas fa-edit"></i>
+                                        <p>Cadastrar Picapes</p>
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
                         <li class="nav-item">
-                            <a th:href="@{/admin/servico}" class="nav-link">
-                                <i class="fas fa-table nav-icon"></i>
-                                <p>Listar</p>
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-list"></i>
+                                <p>
+                                    Listas
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
                             </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a th:href="@{/admin/produtos/listaGeral}" class="nav-link">
+                                        <i class="nav-icon fas fa-table"></i>
+                                        <p>Lista Geral</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a th:href="@{/admin/produtos/listaConversiveis}" class="nav-link">
+                                        <i class="nav-icon fas fa-table"></i>
+                                        <p>Lista Conversíveis</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a th:href="@{/admin/produtos/listaSUVs}" class="nav-link">
+                                        <i class="nav-icon fas fa-table"></i>
+                                        <p>Lista SUVs</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a th:href="@{/admin/produtos/listaCoupees}" class="nav-link">
+                                        <i class="nav-icon fas fa-table"></i>
+                                        <p>Lista Coupees</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a th:href="@{/admin/produtos/listaEletricos}" class="nav-link">
+                                        <i class="nav-icon fas fa-table"></i>
+                                        <p>Lista Eletricos</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a th:href="@{/admin/produtos/listaEsportivos}" class="nav-link">
+                                        <i class="nav-icon fas fa-table"></i>
+                                        <p>Lista Esportivos</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a th:href="@{/admin/produtos/listaMinivans}" class="nav-link">
+                                        <i class="nav-icon fas fa-table"></i>
+                                        <p>Lista Minivans</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a th:href="@{/admin/produtos/listaPicapes}" class="nav-link">
+                                        <i class="nav-icon fas fa-table"></i>
+                                        <p>Lista Picapes</p>
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
                     </ul>
                 </li>
+
+
 
                 <li class="nav-item">
                     <a href="#" class="nav-link">
@@ -60,7 +164,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a th:href="@{/admin/usuarios}" class="nav-link">
+                            <a th:href="@{/admin/usuarios/lista}" class="nav-link">
                                 <i class="fas fa-table nav-icon"></i>
                                 <p>Listar</p>
                             </a>

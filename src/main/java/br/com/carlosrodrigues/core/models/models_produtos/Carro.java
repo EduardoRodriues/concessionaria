@@ -25,13 +25,13 @@ public class Carro {
     private String modelo;
 
     @Column(name = "ano_fabricacao", nullable = false)
-    private BigDecimal anoFabricacao;
+    private String anoFabricacao;
 
     @Column(name = "cor", nullable = false)
     private String cor;
 
     @Column(name = "quilometragem", nullable = false)
-    private BigDecimal quilometragem;
+    private String quilometragem;
 
     public String getMarca() {
         return marca;
@@ -49,11 +49,11 @@ public class Carro {
         this.modelo = modelo;
     }
 
-    public BigDecimal getAnoFabricacao() {
+    public String getAnoFabricacao() {
         return anoFabricacao;
     }
 
-    public void setAnoFabricacao(BigDecimal anoFabricacao) {
+    public void setAnoFabricacao(String anoFabricacao) {
         this.anoFabricacao = anoFabricacao;
     }
 
@@ -65,11 +65,11 @@ public class Carro {
         this.cor = cor;
     }
 
-    public BigDecimal getQuilometragem() {
+    public String getQuilometragem() {
         return quilometragem;
     }
 
-    public void setQuilometragem(BigDecimal quilometragem) {
+    public void setQuilometragem(String quilometragem) {
         this.quilometragem = quilometragem;
     }
 

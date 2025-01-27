@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html th:replace="~{adminlte3 :: layout (~{::title}, ~{::main}, _, _)}" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Lista de Esportivos</title>
+</head>
+<body>
+<main>
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">Lista de Esportivos</div>
+          <div class="card-tools">
+            <a th:href="@{/admin/produtos/cadastrarEsportivos}" class="btn btn-sm btn-success">Novo Veículo</a>
+          </div>
+        </div>
+        <div class="card-body">
+          <table class="table table-condensed">
+            <thead>
+            <tr>
+              <th>#</th>
+              <th>Veículo</th>
+              <th>Valor</th>
+              <th>Marca</th>
+              <th>Quilometragem</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each=" Esportivos: ${listaEsportivos}">
+              <td th:text="${Esportivos.id}"></td>
+              <td th:text="${Esportivos.veiculo}"></td>
+              <td th:text="${Esportivos.preco}"></td>
+              <td th:text="${Esportivos.marca}"></td>
+              <td th:text="${Esportivos.quilometragem}"></td>
+              <td>
+                <a class="btn btn-sm btn-warning"
+                   th:href="@{/admin/produtos/{id}/editarEsportivos (id=${Esportivos.id})}">Editar</a>
+                <a class="btn btn-sm btn-danger"
+                   th:href="@{/admin/produtos/{id}/excluirEsportivos (id=${Esportivos.id})}"
+                   onclick="return confirm ('Tem certeza que deseja excluir?')"
+                >Excluir</a>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+</body>
+</html>
