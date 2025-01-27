@@ -11,6 +11,4 @@ public interface IEsportivosMapper {
 
     EsportivosForm toForm(Esportivos model);
 
-    @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
-    Esportivos partialUpdate(EsportivosForm esportivosForm, @MappingTarget Esportivos esportivos);
 }

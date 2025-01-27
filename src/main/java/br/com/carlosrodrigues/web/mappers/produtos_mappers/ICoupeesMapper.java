@@ -11,6 +11,4 @@ public interface ICoupeesMapper {
 
     CoupeesForm toForm(Coupees model);
 
-    @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
-    Coupees partialUpdate(CoupeesForm coupeesForm, @MappingTarget Coupees coupees);
 }

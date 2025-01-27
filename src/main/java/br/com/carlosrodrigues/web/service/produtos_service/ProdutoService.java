@@ -30,6 +30,7 @@ import br.com.carlosrodrigues.web.mappers.produtos_mappers.IEletricosMapper;
 import br.com.carlosrodrigues.web.mappers.produtos_mappers.IMinivansMapper;
 import br.com.carlosrodrigues.web.mappers.produtos_mappers.IPicapesMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -37,46 +38,53 @@ import java.util.List;
 @Service
 public class ProdutoService {
 
-    @Autowired
+    @Autowired(required = true)
     private ConversiveisRepository conversiveisRepository;
 
-    @Autowired
+    @Autowired(required = true)
+    @Qualifier("IConversiveisMapper")
     private IConversiveisMapper conversiveisMapper;
 
-    @Autowired
+    @Autowired(required = true)
     private SUVsRepository suVsRepository;
 
-    @Autowired
+    @Autowired(required = true)
+    @Qualifier("ISUVsMapper")
     private ISUVsMapper suVsMapper;
 
-    @Autowired
+    @Autowired(required = true)
     private CoupeesRepository coupeesRepository;
 
-    @Autowired
+    @Autowired(required = true)
+    @Qualifier("ICoupeesMapper")
     private ICoupeesMapper coupeesMapper;
 
-    @Autowired
+    @Autowired(required = true)
     private EsportivosRepository esportivosRepository;
 
-    @Autowired
+    @Autowired(required = true)
+    @Qualifier("IEsportivosMapper")
     private IEsportivosMapper esportivosMapper;
 
-    @Autowired
+    @Autowired(required = true)
     private EletricosRepository eletricosRepository;
 
-    @Autowired
+    @Autowired(required = true)
+    @Qualifier("IEletricosMapper")
     private IEletricosMapper eletricosMapper;
 
-    @Autowired
+    @Autowired(required = true)
     private MinivansRepository minivansRepository;
 
-    @Autowired
+    @Autowired(required = true)
+    @Qualifier("IMinivansMapper")
     private IMinivansMapper minivansMapper;
 
-    @Autowired
+    @Autowired(required = true)
     private PicapesRepository picapesRepository;
 
-    @Autowired
+    @Autowired(required = true)
+    @Qualifier("IPicapesMapper")
     private IPicapesMapper picapesMapper;
 
 

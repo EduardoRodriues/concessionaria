@@ -11,6 +11,4 @@ public interface IEletricosMapper {
 
     EletricosForm toForm(Eletricos model);
 
-    @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
-    Eletricos partialUpdate(EletricosForm eletricosForm, @MappingTarget Eletricos eletricos);
 }

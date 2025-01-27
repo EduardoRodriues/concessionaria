@@ -12,6 +12,4 @@ public interface ISUVsMapper {
 
     SUVsForm toForm(SUVs model);
 
-    @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
-    SUVs partialUpdate(SUVsForm suVsForm, @MappingTarget SUVs suVs);
 }

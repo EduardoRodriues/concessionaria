@@ -11,6 +11,4 @@ public interface IPicapesMapper {
 
     Picapes toForm(Picapes model);
 
-    @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
-    Picapes partialUpdate(PicapesForm picapesDto, @MappingTarget Picapes picapes);
 }
