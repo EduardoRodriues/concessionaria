@@ -5,14 +5,11 @@ import br.com.carlosrodrigues.web.dto.dto_produtos.ConversiveisForm;
 import org.mapstruct.*;
 
 @Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE, componentModel = MappingConstants.ComponentModel.SPRING)
-
 public interface IConversiveisMapper {
 
     Conversiveis toModel(ConversiveisForm form);
 
     ConversiveisForm toForm(Conversiveis model);
 
-    @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
-    Conversiveis partialUpdate(ConversiveisForm conversiveisForm, @MappingTarget Conversiveis conversiveis);
 
 }

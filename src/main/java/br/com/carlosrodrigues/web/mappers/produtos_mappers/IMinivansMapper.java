@@ -10,6 +10,4 @@ public interface IMinivansMapper {
 
     MinivansForm toForm(Minivans model);
 
-    @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
-    Minivans partialUpdate(MinivansForm minivansForm, @MappingTarget Minivans minivans);
 }

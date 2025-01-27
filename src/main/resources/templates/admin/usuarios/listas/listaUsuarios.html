@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html th:replace="~{adminlte3 :: layout (~{::title}, ~{::main}, _, _)}" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Lista de Usuarios</title>
+</head>
+<body>
+<main>
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">Lista de Usuarios</div>
+                    <div class="card-tools">
+                        <a th:href="@{/admin/usuarios/cadastrar}" class="btn btn-sm btn-success">Novo Veículo</a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <table class="table table-condensed">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Nome</th>
+                            <th>Email</th>
+                            <th>CPF</th>
+                            <th>Tipo Usuario</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each=" Usuario: ${lista}">
+                            <td th:text="${Usuario.id}"></td>
+                            <td th:text="${Usuario.nome}"></td>
+                            <td th:text="${Usuario.email}"></td>
+                            <td th:text="${Usuario.cpf}"></td>
+                            <td th:text="${Usuario.tipoUsuario}"></td>
+                            <td>
+                                <a class="btn btn-sm btn-warning"
+                                   th:href="@{/admin/usuarios/{id}/editar (id=${Usuario.id})}">Editar</a>
+                                <a class="btn btn-sm btn-danger"
+                                   th:href="@{/admin/usuarios/{id}/excluir (id=${Usuario.id})}"
+                                   onclick="return confirm ('Tem certeza que deseja excluir?')"
+                                >Excluir</a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>
