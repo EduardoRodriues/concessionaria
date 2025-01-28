@@ -9,7 +9,6 @@ import br.com.carlosrodrigues.web.dto.dto_usuarios.UsuarioCadastroForm;
 import br.com.carlosrodrigues.web.dto.dto_usuarios.UsuarioEdicaoForm;
 import br.com.carlosrodrigues.web.mappers.usuarios_mappers.IUsuarioMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.FieldError;
 
@@ -39,7 +38,7 @@ public class UsuarioService {
             var mensagem = "As senhas não conferem";
 
             var fieldError = new FieldError(form.getClass().getName(),
-                    "confirmaSenha",
+                    "confirmacaoSenha",
                     form.getConfirmacaoSenha(),
                     false,
                     null,
@@ -51,10 +50,7 @@ public class UsuarioService {
 
         var model = mapper.toModel(form);
 
-        var passwordEncoder = new BCryptPasswordEncoder();
-        var senhaHash = passwordEncoder.encode(form.getSenha());
-
-        model.setSenha(senhaHash);
+        model.setSenha(senha);
         model.setTipoUsuario(TipoUsuario.ADMIN);
 
         return repository.save(model);

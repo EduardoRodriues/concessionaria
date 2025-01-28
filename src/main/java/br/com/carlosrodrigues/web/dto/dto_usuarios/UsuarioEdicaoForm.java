@@ -17,7 +17,7 @@ public class UsuarioEdicaoForm {
     @NotEmpty(message = "O campo deve ser preenchido")
     private String email;
 
-    @Size(min = 11, max = 11)
+    @Size(min = 11, max = 11, message = "o campo deve conter 11 digitos")
     private String cpf;
 
     public @NotEmpty(message = "O campo deve ser preenchido") String getNome() {
@@ -36,11 +36,11 @@ public class UsuarioEdicaoForm {
         this.email = email;
     }
 
-    public @Size(min = 11, max = 11) String getCpf() {
+    public @Size(min = 11, max = 11, message = "o campo deve conter 11 digitos") String getCpf() {
         return cpf;
     }
 
-    public void setCpf(@Size(min = 11, max = 11) String cpf) {
+    public void setCpf(@Size(min = 11, max = 11, message = "o campo deve conter 11 digitos") String cpf) {
         this.cpf = cpf;
     }
 }

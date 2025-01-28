@@ -45,10 +45,14 @@ public class UsuarioController {
                             BindingResult result,
                             RedirectAttributes attrs) {
 
-        try {
+        if(result.hasErrors()) {
+            return "admin/usuarios/formularios/usuarioCadastroForm";
+        }
+
+        try{
             service.cadastrar(form);
-            attrs.addFlashAttribute("alert", new FlashMessage("alert-success", "Usuario cadastrado com sucesso"));
-        } catch (ValidacaoException e) {
+            attrs.addFlashAttribute("alert", new FlashMessage("alert-success", "usuario editado com sucesso!"));
+        } catch(ValidacaoException e) {
             result.addError(e.getFieldError());
             return "admin/usuarios/formularios/usuarioCadastroForm";
         }
@@ -72,10 +76,15 @@ public class UsuarioController {
                          BindingResult result,
                          RedirectAttributes attrs) {
 
-        try {
+
+        if(result.hasErrors()) {
+            return "admin/usuarios/formularios/usuarioEdicaoForm";
+        }
+
+        try{
             service.editar(form, id);
-            attrs.addFlashAttribute("alert", new FlashMessage("alert-success", "Usuario editado com sucesso"));
-        } catch (ValidacaoException e) {
+            attrs.addFlashAttribute("alert", new FlashMessage("alert-success", "usuario editado com sucesso!"));
+        } catch(ValidacaoException e) {
             result.addError(e.getFieldError());
             return "admin/usuarios/formularios/usuarioEdicaoForm";
         }
