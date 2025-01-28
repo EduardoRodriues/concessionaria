@@ -38,7 +38,7 @@ public class UsuarioService {
             var mensagem = "As senhas não conferem";
 
             var fieldError = new FieldError(form.getClass().getName(),
-                    "confirmaSenha",
+                    "confirmacaoSenha",
                     form.getConfirmacaoSenha(),
                     false,
                     null,

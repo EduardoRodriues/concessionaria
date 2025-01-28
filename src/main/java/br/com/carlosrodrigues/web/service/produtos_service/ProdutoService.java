@@ -42,49 +42,42 @@ public class ProdutoService {
     private ConversiveisRepository conversiveisRepository;
 
     @Autowired(required = true)
-    @Qualifier("IConversiveisMapper")
     private IConversiveisMapper conversiveisMapper;
 
     @Autowired(required = true)
     private SUVsRepository suVsRepository;
 
     @Autowired(required = true)
-    @Qualifier("ISUVsMapper")
     private ISUVsMapper suVsMapper;
 
     @Autowired(required = true)
     private CoupeesRepository coupeesRepository;
 
     @Autowired(required = true)
-    @Qualifier("ICoupeesMapper")
     private ICoupeesMapper coupeesMapper;
 
     @Autowired(required = true)
     private EsportivosRepository esportivosRepository;
 
     @Autowired(required = true)
-    @Qualifier("IEsportivosMapper")
     private IEsportivosMapper esportivosMapper;
 
     @Autowired(required = true)
     private EletricosRepository eletricosRepository;
 
     @Autowired(required = true)
-    @Qualifier("IEletricosMapper")
     private IEletricosMapper eletricosMapper;
 
     @Autowired(required = true)
     private MinivansRepository minivansRepository;
 
     @Autowired(required = true)
-    @Qualifier("IMinivansMapper")
     private IMinivansMapper minivansMapper;
 
     @Autowired(required = true)
     private PicapesRepository picapesRepository;
 
     @Autowired(required = true)
-    @Qualifier("IPicapesMapper")
     private IPicapesMapper picapesMapper;
 
 
