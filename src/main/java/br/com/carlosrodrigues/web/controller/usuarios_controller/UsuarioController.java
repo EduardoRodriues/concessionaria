@@ -1,6 +1,7 @@
 package br.com.carlosrodrigues.web.controller.usuarios_controller;
 
 import br.com.carlosrodrigues.core.exceptions.usuarios_exceptions.ValidacaoException;
+import br.com.carlosrodrigues.web.dto.dto_usuarios.AlterarSenhaForm;
 import br.com.carlosrodrigues.web.dto.dto_usuarios.UsuarioCadastroForm;
 import br.com.carlosrodrigues.web.dto.dto_usuarios.UsuarioEdicaoForm;
 import br.com.carlosrodrigues.web.dto.mensagens.FlashMessage;
@@ -12,6 +13,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import java.security.Principal;
 
 @Controller
 @RequestMapping("/admin/usuarios")
@@ -97,6 +100,38 @@ public class UsuarioController {
 
         service.deletar(id);
         attrs.addFlashAttribute("alert", new FlashMessage("alert-success", "Usuario excluido com sucesso"));
+
+        return "redirect:/admin/usuarios/lista";
+    }
+
+    @GetMapping("/alterar-senha")
+    public ModelAndView alterarSenha() {
+
+        var modelAndView = new ModelAndView("admin/usuarios/formularios/alterarSenhaForm");
+
+        modelAndView.addObject("alterarSenhaForm", new AlterarSenhaForm());
+
+        return modelAndView;
+    }
+
+    @PostMapping("/alterar-senha")
+    public String alterarSenha(@Valid @ModelAttribute("alterarSenhaForm") AlterarSenhaForm form,
+                         BindingResult result,
+                         RedirectAttributes attrs,
+                               Principal principal) {
+
+
+        if(result.hasErrors()) {
+            return "admin/usuarios/formularios/alterarSenhaForm";
+        }
+
+        try{
+            service.alterarSenha(form, principal.getName());
+            attrs.addFlashAttribute("alert", new FlashMessage("alert-success", "senha alterada com sucesso!"));
+        } catch(ValidacaoException e) {
+            result.addError(e.getFieldError());
+            return "admin/usuarios/formularios/alterarSenhaForm";
+        }
 
         return "redirect:/admin/usuarios/lista";
     }
